@@ -28,42 +28,6 @@ Project File Date:  09/21/2023
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
 assembling startup_stm32f10x_md.s...
-pin.cpp(16): warning: In file included from...
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
-                                               ^
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *                code will be based on direct access to peripheral<92>s registers 
-                                                                    ^
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *           - Macros to access peripheral<92>s registers hardware
-                                           ^
-3 warnings generated.
-compiling pin.cpp...
-port.cpp(16): warning: In file included from...
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
-                                               ^
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *                code will be based on direct access to peripheral<92>s registers 
-                                                                    ^
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *           - Macros to access peripheral<92>s registers hardware
-                                           ^
-3 warnings generated.
-compiling port.cpp...
-main.cpp(16): warning: In file included from...
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
-                                               ^
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *                code will be based on direct access to peripheral<92>s registers 
-                                                                    ^
-C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *           - Macros to access peripheral<92>s registers hardware
-                                           ^
-3 warnings generated.
-compiling main.cpp...
 RTE/Device/STM32F103RB/system_stm32f10x.c(64): warning: In file included from...
 C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *              - To use or not the peripheral<92>s drivers in application code(i.e. 
@@ -82,7 +46,7 @@ __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}
     ^
 4 warnings generated.
 compiling system_stm32f10x.c...
-functions.cpp(16): warning: In file included from...
+port.cpp(16): warning: In file included from...
 C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *              - To use or not the peripheral<92>s drivers in application code(i.e. 
                                                ^
@@ -92,17 +56,32 @@ C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\s
 C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *           - Macros to access peripheral<92>s registers hardware
                                            ^
-functions.cpp(24): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        GPIOA->ODR &= ~GPIO_ODR_ODR5;
-                   ~~ ^~~~~~~~~~~~~~
-functions.cpp(32): warning: comparison of integers of different signs: 'volatile unsigned int' and 'int' [-Wsign-compare]
-        for (c = 1; c <= a; c++)
-                    ~ ^  ~
-functions.cpp(34): warning: comparison of integers of different signs: 'volatile unsigned int' and 'int' [-Wsign-compare]
-                for (d = 1; d <= a; d++)
-                            ~ ^  ~
-6 warnings generated.
-compiling functions.cpp...
+3 warnings generated.
+compiling port.cpp...
+clock.cpp(17): warning: In file included from...
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+3 warnings generated.
+compiling clock.cpp...
+pin.cpp(16): warning: In file included from...
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+3 warnings generated.
+compiling pin.cpp...
 C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/RTE_Driver/GPIO_STM32F10x.c(26): warning: In file included from...
 C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/RTE_Driver/GPIO_STM32F10x.h(30): warning: In file included from...
 C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
@@ -129,7 +108,7 @@ C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/RTE_Driver/GPIO_
        ~~ ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
 7 warnings generated.
 compiling GPIO_STM32F10x.c...
-clock.cpp(17): warning: In file included from...
+main.cpp(16): warning: In file included from...
 C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *              - To use or not the peripheral<92>s drivers in application code(i.e. 
                                                ^
@@ -140,7 +119,28 @@ C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\s
   *           - Macros to access peripheral<92>s registers hardware
                                            ^
 3 warnings generated.
-compiling clock.cpp...
+compiling main.cpp...
+functions.cpp(16): warning: In file included from...
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+                                               ^
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers 
+                                                                    ^
+C:/Users/amand/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include\stm32f10x.h(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+functions.cpp(24): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOA->ODR &= ~GPIO_ODR_ODR5;
+                   ~~ ^~~~~~~~~~~~~~
+functions.cpp(32): warning: comparison of integers of different signs: 'volatile unsigned int' and 'int' [-Wsign-compare]
+        for (c = 1; c <= a; c++)
+                    ~ ^  ~
+functions.cpp(34): warning: comparison of integers of different signs: 'volatile unsigned int' and 'int' [-Wsign-compare]
+                for (d = 1; d <= a; d++)
+                            ~ ^  ~
+6 warnings generated.
+compiling functions.cpp...
 linking...
 Program Size: Code=1196 RO-data=252 RW-data=0 ZI-data=1632  
 ".\Objects\Blinky.axf" - 0 Error(s), 29 Warning(s).
@@ -172,15 +172,15 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:GPIO:1.3
-      Source file:   RTE_Driver/GPIO_STM32F10x.c
       Include file:  RTE_Driver/GPIO_STM32F10x.h
+      Source file:   RTE_Driver/GPIO_STM32F10x.c
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device/Source/ARM/startup_stm32f10x_md.s
-      Include file:  RTE_Driver/Config/RTE_Device.h
       Source file:   Device/Source/system_stm32f10x.c
+      Include file:  RTE_Driver/Config/RTE_Device.h
       Source file:   Device/Source/ARM/STM32F1xx_OPT.s
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
