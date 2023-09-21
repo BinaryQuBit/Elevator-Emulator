@@ -1,3 +1,131 @@
-body{
-    background-color: red;
+
+body {
+    background-color: #fff;
+    font-family: 'Roboto';
+    margin: auto; /* Added this line cause it kinda looked weird with the outer white border */
+}
+
+header{
+    background-color: #004F2E;
+    color: white;
+    text-align: center;
+    font-size: 38px;
+    padding: 35px 0px;
+}
+
+.nav-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+nav{
+    background-color: #FFC82E;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+}   
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto ;
+    padding-top: 10px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 70px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+h2 {
+    color: #004F2E;;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 30px;
+    color: #004F2E;
+}
+
+section, aside{
+    padding: 0px 20px 20px 20px;
+    font-size: 20px;
+}
+
+section {
+    float: left;
+    width: 60%;
+    color: #34495E;
+    margin-right: 30px;
+}
+
+img{
+    width: 100%;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+}
+
+aside{
+    float: left;
+    border-left: 2px solid #dedede;
+    padding-left: 40px;
+}
+
+article{
+    padding: 15px 20px 5px 20px;
+    margin-top: 20px;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+}
+
+ul{
+    list-style: none;
+    padding: 0px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #34495E;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: #edaf00;
+}
+
+ul li {
+    margin: 10px 0px;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+footer{
+    background-color: black;;
+    color: white;
+    clear: both;
+    padding: 20px 0;
+}
+
+
+.footer-container{
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer a{
+    padding-left: 1%;
+    padding-right: 1%;
+    color: white;
+}
+
+footer a:hover {
+    color: lightblue;
 }
