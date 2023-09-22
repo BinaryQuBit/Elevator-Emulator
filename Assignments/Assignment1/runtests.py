@@ -4,9 +4,6 @@
 # I've attempted to use representative numbers for all four operators
 # and every combination involving 0.
 
-# Note that this test program does NOT exercise the error detection
-# requirement.
-
 import subprocess
 import sys
 
@@ -61,7 +58,9 @@ testvectors = (
 
 def is_equal(got, expected):
     if got.startswith("error"):
-        return got.split(None, 3) == expected.split(None, 3)
+        got_list = got.split()
+        expected_list = expected.split()
+        return expected_list[0:3] == got_list[0:3]
 
     def convert_to_complex(result_string):
         (re, plusminus, jay, im) = result_string.split()
@@ -104,7 +103,7 @@ for n,vec in enumerate(testvectors):
             print(".", end="")
         else:
             tests_failed += 1
-            print(f"\ntest# {n+1}: Tolerance ERROR")
+            print(f"\ntest# {n+1}: ERROR")
             print("   input: ", vec[0])
             print("expected: ", vec[1])
             print("     got: ", got_output)
