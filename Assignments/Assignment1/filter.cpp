@@ -12,7 +12,7 @@ struct Complex
     double imag;
 };
 
-// prototypes as per document
+// Prototypes
 void add(Complex z1, Complex z2, Complex *result);
 void subtract(Complex z1, Complex z2, Complex *result);
 void multiply(Complex z1, Complex z2, Complex *result);
@@ -20,8 +20,8 @@ void divide(Complex z1, Complex z2, Complex *result);
 
 int main()
 {
-    char sel;                           // Operator selection
-    Complex complex1, complex2, result; // declare inputs
+    char sel;
+    Complex complex1, complex2, result;
 
     cerr << "Complex calculator" << endl;
     cerr << "Type a letter to specify the arithmetic operator (A, S, M, D)" << endl;
@@ -32,7 +32,7 @@ int main()
     {
         cerr << "Enter exp: ";
 
-        if (!(cin >> sel)) // no input of operator error
+        if (!(cin >> sel))
         {
             if (cin.eof())
             {
@@ -41,7 +41,7 @@ int main()
             cout << "error code: 2: missing arguments" << endl;
         }
 
-        if (sel == 'Q' || sel == 'q') // quit functionality
+        if (sel == 'Q' || sel == 'q')
         {
             string extra;
             getline(cin, extra);
@@ -55,13 +55,13 @@ int main()
             }
         }
 
-        if (!(cin >> complex1.real >> complex1.imag >> complex2.real >> complex2.imag)) // error for no input of numbers
+        if (!(cin >> complex1.real >> complex1.imag >> complex2.real >> complex2.imag))
         {
             cout << "error code: 2: missing arguments" << endl;
             break;
         }
 
-        string extra; // extra arguments error with no position
+        string extra;
         getline(cin, extra);
         if (!extra.empty() && extra.find_first_not_of(" \t") != string::npos)
         {
@@ -74,7 +74,7 @@ int main()
             add(complex1, complex2, &result);
             cout << result.real << " + j " << result.imag << endl;
         }
-        else if (sel == 'S' || sel == 's') //substraction
+        else if (sel == 'S' || sel == 's') // subtraction
         {
             subtract(complex1, complex2, &result);
             if (result.imag < 0)
@@ -87,19 +87,28 @@ int main()
                 cout << result.real << " + j " << result.imag << endl;
             }
         }
-        else if (sel == 'M' || sel == 'm') //multiply
+        else if (sel == 'M' || sel == 'm') // multiply
         {
             multiply(complex1, complex2, &result);
             cout << result.real << " + j " << result.imag << endl;
         }
-        else if (sel == 'D' || sel == 'd') //divide
+        else if (sel == 'D' || sel == 'd') // divide
         {
-            divide(complex1, complex2, &result);
-            cout << result.real << " + j " << result.imag << endl;
+            double threshold = 1e-9; // A small number
+            if (fabs(complex2.real) < threshold && fabs(complex2.imag) < threshold)
+            {
+                cout << "error code: 4: divide by zero" << endl;
+            }
+            else
+            {
+                divide(complex1, complex2, &result);
+                cout << result.real << " + j " << result.imag << endl;
+            }
         }
+
         else
         {
-            cout << "error code: 1: illegal command" << endl; //last else to handle illegal command
+            cout << "error code: 1: illegal command" << endl;
             break;
         }
     }
@@ -107,7 +116,7 @@ int main()
     return 0;
 }
 
-// Function definitions
+// Function Definitions
 void add(Complex z1, Complex z2, Complex *result)
 {
     result->real = z1.real + z2.real;
