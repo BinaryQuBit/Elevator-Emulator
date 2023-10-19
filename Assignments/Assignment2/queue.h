@@ -87,7 +87,9 @@ public:
     /** Enable extra informative messages for debugging purposes. */
     void setVerbose(bool flag)  { verbose = flag; }
 
-    void insert(Data d, unsigned position); // Added
+// Added by Amandip Padda
+// Prototype of the function insert
+    void insert(Data d, unsigned position);
 
 };
         
