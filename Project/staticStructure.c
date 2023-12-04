@@ -1,45 +1,68 @@
-#include "cli.h"
+// *********************************** staticStructure.c ***********************************
+// Project: Elevator Simulation
+// File: staticStructure.c
+// Class: ENEL 452 Lab Works
+// Programmer: Amandip Padda
+// SID: 200455829
+// Description: The project is based on the STM32F103RB that is being used in ENEL 452 Labs.
+
+// =========================================================================================
+// **************************************** IMPORTANT **************************************
+// Copyright (c) 2023. All rights reserved. 
+// See the bottom of this file for the license terms.
+// =========================================================================================
+
+// *************************************** Header Files ************************************
 #include "staticStructure.h"
-#include <stdio.h>
-void setTextColor(uint8_t colorCode) {
-    char colorBuffer[20];
-    sprintf(colorBuffer, "\033[38;5;%dm", colorCode);
-    CLI_Transmit((uint8_t*)colorBuffer, strlen(colorBuffer));
+
+// *********************************** To change Text color ********************************
+void setTextColor(uint8_t colorCode)
+{
+	char colorBuffer[20];
+	sprintf(colorBuffer, "\033[38;5;%dm", colorCode);
+	CLI_Transmit((uint8_t*)colorBuffer, strlen(colorBuffer));
 }
 
-void displayBox(uint8_t width, uint8_t height, uint8_t centerRow, uint8_t centerColumn, uint8_t colorCode) {
-    uint8_t halfWidth = width / 2;
-    uint8_t halfHeight = height / 2;
-    setTextColor(colorCode);
-    for (uint8_t col = centerColumn - halfWidth; col <= centerColumn + halfWidth; col++) {
-        setCursorPosition(centerRow - halfHeight, col);
-        CLI_Transmit((uint8_t*)"-", 1);
-        setCursorPosition(centerRow + halfHeight - 1, col);
-        CLI_Transmit((uint8_t*)"-", 1);
-    }
-    for (uint8_t row = centerRow - halfHeight; row < centerRow + halfHeight; row++) {
-        setCursorPosition(row, centerColumn - halfWidth);
-        CLI_Transmit((uint8_t*)"|", 1);
-        setCursorPosition(row, centerColumn + halfWidth);
-        CLI_Transmit((uint8_t*)"|", 1);
-    }
-    setCursorPosition(centerRow - halfHeight, centerColumn - halfWidth);
-    CLI_Transmit((uint8_t*)"+", 1);
-    setCursorPosition(centerRow - halfHeight, centerColumn + halfWidth);
-    CLI_Transmit((uint8_t*)"+", 1);
-    setCursorPosition(centerRow + halfHeight - 1, centerColumn - halfWidth);
-    CLI_Transmit((uint8_t*)"+", 1);
-    setCursorPosition(centerRow + halfHeight - 1, centerColumn + halfWidth);
-    CLI_Transmit((uint8_t*)"+", 1);
+// ******************************* To make boundary of elevator ****************************
+void displayBox(uint8_t width, uint8_t height, uint8_t centerRow, uint8_t centerColumn, uint8_t colorCode)
+{
+	uint8_t halfWidth = width / 2;
+	uint8_t halfHeight = height / 2;
+	setTextColor(colorCode);
+	for (uint8_t col = centerColumn - halfWidth; col <= centerColumn + halfWidth; col++)
+	{
+		setCursorPosition(centerRow - halfHeight, col);
+		CLI_Transmit((uint8_t*)"-", 1);
+		setCursorPosition(centerRow + halfHeight - 1, col);
+		CLI_Transmit((uint8_t*)"-", 1);
+	}
+	for (uint8_t row = centerRow - halfHeight; row < centerRow + halfHeight; row++)
+	{
+		setCursorPosition(row, centerColumn - halfWidth);
+		CLI_Transmit((uint8_t*)"|", 1);
+		setCursorPosition(row, centerColumn + halfWidth);
+		CLI_Transmit((uint8_t*)"|", 1);
+	}
+	setCursorPosition(centerRow - halfHeight, centerColumn - halfWidth);
+	CLI_Transmit((uint8_t*)"+", 1);
+	setCursorPosition(centerRow - halfHeight, centerColumn + halfWidth);
+	CLI_Transmit((uint8_t*)"+", 1);
+	setCursorPosition(centerRow + halfHeight - 1, centerColumn - halfWidth);
+	CLI_Transmit((uint8_t*)"+", 1);
+	setCursorPosition(centerRow + halfHeight - 1, centerColumn + halfWidth);
+	CLI_Transmit((uint8_t*)"+", 1);
 }
 
-void drawHorizontal(uint8_t width, uint8_t centerRow, uint8_t centerColumn, uint8_t colorCode) {
-    uint8_t halfWidth = width / 2;
-    setTextColor(colorCode);
-    for (uint8_t col = centerColumn - halfWidth; col <= centerColumn + halfWidth; col++) {
-        setCursorPosition(centerRow, col);
-        CLI_Transmit((uint8_t*)"-", 1);
-    }
+// ********************************* To draw horizontal line *******************************
+void drawHorizontal(uint8_t width, uint8_t centerRow, uint8_t centerColumn, uint8_t colorCode)
+{
+	uint8_t halfWidth = width / 2;
+	setTextColor(colorCode);
+	for (uint8_t col = centerColumn - halfWidth; col <= centerColumn + halfWidth; col++)
+	{
+		setCursorPosition(centerRow, col);
+		CLI_Transmit((uint8_t*)"-", 1);
+	}
 }
 
 void drawVertical(uint8_t height, uint8_t centerRow, uint8_t centerColumn, uint8_t colorCode) {
@@ -114,18 +137,18 @@ void instructions(uint8_t colorCode)
 	display("To select 5th floor ~TYPE: '5'", 18, 1);
 	display("To open door ~TYPE: 'open'", 19, 1);
 	display("To close door ~TYPE: 'close'", 20, 1);
-	display("For emergency stop ~TYPE: 'stop'", 21, 1);
-	display("For maintenance ~TYPE: 'M'", 22, 1);
+	display("For emergency stop ~Press: 'User Button'. To continue press again!", 21, 1);
+	display("For maintenance ~TYPE: 'M'. To continue press reset button!", 22, 1);
 }
 
 void statusDisplay(uint8_t colorCode)
 {
 	setTextColor(colorCode);
-	displayBox(30, 9, 17, 160, colorCode);
+	displayBox(44, 9, 17, 160, colorCode);
 	display("View Point", 14, 155);
-	display("Time Elapsed: ", 16, 146);
-	display("Floor: ", 17, 146);
-	display("Status: ", 18, 146);
+	display("Time Elapsed: ", 16, 144);
+	display("Floor: ", 17, 144);
+	display("Status: ", 18, 144);
 }
 
 void displayBreaker(uint8_t row, uint8_t colorCode)
@@ -149,14 +172,16 @@ void displaySetup()
 	statusDisplay(33);
 	displayBreaker(23, 31);
 }
-//Some color codes:
-//Black: 30m
-//Red: 31m
-//Green: 32m
-//Yellow: 33m
-//Blue: 34m
-//Magenta: 35m
-//Cyan: 36m
-//White: 37m
 
-
+// =========================================================================================
+// *****************************************IMPORTANT***************************************
+// Copyright (c) 2016. All rights reserved.
+// This library is free software; you can redistribute it and/or modify it under the terms 
+// of the GNU Lesser General Public License as published by the Free Software Foundation; 
+// either version 2.1 of the License, or (at your option) any later version. This library
+// is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+// the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// Lesser General Public License for more details. You should have received a copy of the GNU
+// Lesser General Public License along with this library; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+// ==========================================================================================

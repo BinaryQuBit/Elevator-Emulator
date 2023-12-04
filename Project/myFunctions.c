@@ -229,6 +229,46 @@ void userLedOff(void)
 	GPIOA->ODR &= ~GPIO_ODR_ODR5;
 }
 
+// ************************************ Absolute Function **********************************
+int my_abs(int value) {
+    return (value < 0) ? -value : value;
+}
+
+// ********************************** Character to Integer *********************************
+int characterToInt(const char *str) {
+	int res = 0;
+	int sign = 1;
+	int i = 0;
+	if (str[0] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	for (; str[i] != '\0'; ++i)
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			res = res * 10 + str[i] - '0';
+		}
+		else
+		{
+			break;
+		}
+	}
+	return sign * res;
+}
+
+// ********************************* Allocating New Memory *********************************
+char* newMemory(const char* s)
+{
+	if (s == NULL) return NULL;
+	size_t size = strlen(s) + 1;
+	char* new_str = (char*)pvPortMalloc(size);
+	if (new_str == NULL) return NULL;
+	strcpy(new_str, s);
+	return new_str;
+}
+
 // =========================================================================================
 // *****************************************IMPORTANT***************************************
 // Copyright (c) 2016. All rights reserved.

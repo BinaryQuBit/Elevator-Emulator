@@ -14,7 +14,6 @@
 
 // *************************************** Header Files ************************************
 #include "timer.h"
-#include "myFunctions.h"
 
 // ********************************** Time Elapsed on window *******************************
 void updateTimer(void)
@@ -40,6 +39,42 @@ void TIM3_IRQHandler(void)
 	{
 		TIM3->SR &= ~TIM_SR_UIF;
 		timeCounter++;
+	}
+}
+
+// ******************************** Setting up EXTI Interrupt ******************************
+void interruptPC13setup()
+{
+	RCC_SetGPIOClock('C', true);
+	RCC_EnableAFIOClock();
+	AFIO->EXTICR[3] |= AFIO_EXTICR4_EXTI13_PC;
+	EXTI->IMR |= (1 << 13);
+	EXTI->RTSR |= (1 << 13);
+	EXTI->FTSR &= ~(1 << 13);
+	NVIC_EnableIRQ(EXTI15_10_IRQn);
+	NVIC_SetPriority(EXTI15_10_IRQn, 1);
+}
+
+// **************************** Interrupt Handler for User Button **************************
+void EXTI15_10_IRQHandler(void)
+{
+	if (EXTI->PR & (1 << 13))
+	{
+		if (buttonPressed == 0)
+		{
+			display("Emergency Stop                ", 18, 152);
+			display("If Life Threatening, Call 911", 19, 144);
+			serial_close();
+			buttonPressed = 1;
+		}
+		else
+		{
+			serial_open();
+			display("Emergency Stop                ", 18, 152);
+			display("                              ", 19, 144);
+			buttonPressed = 0;
+		}
+		EXTI->PR = (1 << 13);
 	}
 }
 

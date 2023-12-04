@@ -14,8 +14,12 @@
 
 // *************************************** Header Files ************************************
 #include "stm32f10x.h"
-#include <stdint.h>
-#include <stdbool.h>
+#include "FreeRTOS.h" // Calling to use pvPortMalloc
+
+// *************************************** Library Call ************************************
+#include <stdbool.h> // Calling to use BOOL
+#include <stdio.h> // Calling to use NULL
+#include <string.h> // Calling to use strcpy
 
 // ***********************************  Defining Variables *********************************
 #define GPIO_MODE_INPUT           0x00
@@ -62,6 +66,16 @@ void userLedOn(void);
 
 // ************************************ Turn User LED OFF **********************************
 void userLedOff(void);
+
+// ************************************ Absolute Function **********************************
+int my_abs(int value);
+
+// ********************************** Character to Integer *********************************
+int characterToInt(const char *str);
+
+// ************************************ Memory Allocation **********************************
+// Got it from Stack Overflow to allocate memory
+char* newMemory(const char* s);
 
 // =========================================================================================
 // *****************************************IMPORTANT***************************************

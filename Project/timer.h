@@ -12,11 +12,17 @@
 // See the bottom of this file for the license terms.
 // =========================================================================================
 
-// *************************************** Header Files ************************************
+// *************************************** Library Call ************************************
 #include <stdint.h>
 
+// *************************************** Header Files ************************************
+#include "myFunctions.h"
+#include "usart.h"
+#include "cli.h"
+
 // ************************************  Global Variables **********************************
-extern volatile uint32_t timeCounter;
+extern volatile uint32_t timeCounter; // For the timer on the screen
+extern volatile uint8_t buttonPressed; // For the blue button
 
 // ********************************** Time Elapsed on window *******************************
 void updateTimer(void);
@@ -26,6 +32,9 @@ void initTimerForTIM3(void);
 
 // **************************** Interrupt Handler for Window Timer *************************
  void TIM3_IRQHandler(void);
+ 
+// ****************************** Setup for Interrupt for Button *************************** 
+ void interruptPC13setup();
 
 // =========================================================================================
 // *****************************************IMPORTANT***************************************

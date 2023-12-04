@@ -12,38 +12,48 @@
 // See the bottom of this file for the license terms.
 // =========================================================================================
 
-// *************************************** Header Files ************************************
+// ************************************ Defining Tasking.h *********************************
 #ifndef TASKING_H
 #define TASKING_H
 
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
+// *********************************** Defining Header Files *******************************
 #include "FreeRTOS.h"
 #include "task.h"
-#include <queue.h>
+#include "queue.h"
+#include "myFunctions.h"
+#include "usart.h"
+#include "cli.h"
+#include "timer.h"
+#include "tasking.h"
+#include "staticStructure.h"
 
-extern volatile uint32_t timeCounter;
-extern volatile uint32_t floorNumber;
-extern int blockSize;
-extern char block[8][20];
-extern int counter;
-extern int moveCount;
-extern int volatile cursorRow;
-extern int volatile cursorColumn;	
+// ************************************ Defining Variables *********************************
+#define CMD_BUFFER_SIZE 128 // Input Size
 
-void createQueue();
-void displayStructure();
-void elevatorUp(void *pvParameters);
-void elevatorDown(void *pvParameters);
-void timeElapsed(void *pvParameters);
-void displayFloor(void *pvParameters);
-// void displayStatus(void *pvParameters);
-void ElevatorDoorTask(void *pvParameters);
-void openDoor(void *pvParameters);
+static int cmdIndex = 0; // Index to track
+static char cmdBuffer[CMD_BUFFER_SIZE]; // passing buffer
+extern volatile uint32_t floorNumber; // to track floor number
+extern char *statusMessage; // to track message
+
+// ************************************* Defining Queues ***********************************
+extern QueueHandle_t xCommandQueue; // Queue for command
+extern QueueHandle_t xDrawQueue; // Queue to update the visual floors
+
+// ************************************** Defining Tasks ***********************************
+void floorStatus(void *pvParameters); // Floor Status
+void status(void *pvParameters); // Status Message
+void TaskHandleUserInput(void *pvParameters); // Input Handle
+void TaskProcessCommand(void *pvParameters); // Process Tasks
+void draw(void *pvParameters); // Process to update visiual floors
+void timeElapsed(void *pvParameters); // Process to update window timer
+
+// ********************************** Logic to Move Elevator *******************************
+void moveElevatorToFloor(unsigned int targetFloor);
+
+// ********************************* Logic to Process Command ******************************
+void processCommand(const char* cmd);
 
 #endif // TASKING_H
-
 
 // =========================================================================================
 // *****************************************IMPORTANT***************************************

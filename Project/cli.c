@@ -14,9 +14,6 @@
 
 // *************************************** Header Files ************************************
 #include "cli.h"
-#include "usart.h"
-#include <stdio.h>
-#include "myFunctions.h"
 
 // ************************************ Transmitting Data **********************************
 void CLI_Transmit(uint8_t *pData, uint16_t Size)
@@ -70,37 +67,58 @@ void display(char messages[], uint8_t row, uint8_t column)
 	CLI_Transmit((uint8_t*)messages, strlen(messages));
 }
 
+// ******************************** Setting Cursor Position ********************************
 void setCursorPosition(uint8_t row, uint8_t column) {
     char buffer[20];
     sprintf(buffer, "\033[%d;%dH", row, column);
     CLI_Transmit((uint8_t*)buffer, strlen(buffer));
 }
 
+// ******************************* Int to String Conversion ********************************
 void convertToString(uint8_t number, char buffer[], uint8_t row, uint8_t column)
 {
     sprintf(buffer, "%d", number);
     display(buffer, row, column);
 }
 
+// ********************** Just to transmit message without position ************************
 void message(const char* str)
 {
 	CLI_Transmit((uint8_t *)str, strlen(str));
 }
 
+// ****************************** To save cursors Position *********************************
 void saveCursorPosition() {
 	message("\033[s");
 }
 
+// ******************************* To get cursors Position *********************************
 void getCursorPosition() {
 	message("\033[u");
 }
 
-//void sendPromptArrows(){
-//	uint8_t row = 24;
-//	uint8_t column = 0;
-//	display(">> ", row, column);
-//	row++;
-//}
+// ******************************** To send arrow Prompts **********************************
+void sendPromptArrows()
+{
+	uint8_t column = 0;
+	display(">> ", currentRow, currentColumn);
+	message("\033[s");
+}
+
+// *********************************** To clear screen *************************************
+void clearScreenFromRow(uint8_t startRow)
+{
+	char clearLine[SCREEN_WIDTH + 1];
+	memset(clearLine, ' ', SCREEN_WIDTH);
+	clearLine[SCREEN_WIDTH] = '\0';
+	for (uint8_t i = startRow; i <= MAX_ROW; i++)
+	{
+		display(clearLine, i, 0);
+		setCursorPosition(startRow, 0);
+		currentRow = startRow;
+		currentColumn = 0;
+	}
+}
 
 // =========================================================================================
 // *****************************************IMPORTANT***************************************

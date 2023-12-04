@@ -12,13 +12,22 @@
 // See the bottom of this file for the license terms.
 // =========================================================================================
 
-// *************************************** Header Files ************************************
+// *************************************** Library Call ************************************
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
 
-extern int volatile cursorColumn;
-extern uint8_t volatile currentRow;
-extern uint8_t volatile currentColumn;
+// *************************************** Header Files ************************************
+#include "usart.h"
+#include "myFunctions.h"
+
+// *********************************** Defining Variables **********************************
+#define MAX_ROW 49 // to define my computer height size
+#define SCREEN_WIDTH 179 // to define my computer width size
+
+// ************************************ Global Variables ***********************************
+extern uint8_t volatile currentRow; // Tracking Row
+extern uint8_t volatile currentColumn; // Tracking Column
 
 // ************************************ Transmitting Data **********************************
 void CLI_Transmit(uint8_t *pData, uint16_t Size);
@@ -29,14 +38,26 @@ void CLI_Receive(uint8_t *pData, uint16_t Size);
 // ******************************** For Easier Transmitting ********************************
 void display(char messages[], uint8_t row, uint8_t column);
 
+// ******************************** Setting Cursor Position ********************************
 void setCursorPosition(uint8_t row, uint8_t column);
-void testCursor();
+
+// ******************************* Int to String Conversion ********************************
 void convertToString(uint8_t number, char buffer[], uint8_t row, uint8_t column);
+
+// ****************************** To save cursors Position *********************************
 void saveCursorPosition();
+
+// ******************************* To get cursors Position *********************************
 void getCursorPosition();
 
+// ********************** Just to transmit message without position ************************
 void message(const char* str);
 
+// ******************************** To send arrow Prompts **********************************
+void sendPromptArrows();
+
+// *********************************** To clear screen *************************************
+void clearScreenFromRow(uint8_t startRow);
 
 // =========================================================================================
 // *****************************************IMPORTANT***************************************

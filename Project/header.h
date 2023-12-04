@@ -13,20 +13,29 @@
 // =========================================================================================
 
 // *************************************** Header Files ************************************
-#include <stdint.h>
+#include "myFunctions.h"
+#include "usart.h"
+#include "cli.h"
+#include "timer.h"
+#include "tasking.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "staticStructure.h"
+#include "queue.h"
 
-// ************************************  Global Variables **********************************
-int characterFlag;
-uint8_t characterReceived;
-volatile uint32_t timeCounter;
-volatile uint32_t floorNumber = 1;
-int blockSize = 8;
-char block[8][20];
-int counter = 1;
-int moveCount = 0;
-volatile uint8_t currentRow = 24;
-volatile uint8_t currentColumn = 0;
-char *statusMessage = "Idle";
+// ***********************************  Global Variables ***********************************
+int characterFlag; // Interrupt Flag for input ~ USART
+uint8_t characterReceived; // Storing Char recieved
+volatile uint32_t timeCounter; // Interupt for Timer
+volatile uint32_t floorNumber = 1; // Floor number
+char *statusMessage = "Idle                          "; // status message
+volatile uint8_t currentRow = 24; // row to be set at this position
+volatile uint8_t currentColumn = 0; // column to be set at this position
+volatile uint8_t buttonPressed = 0; // button pressed user
+
+// ***************************************** Queues ****************************************
+QueueHandle_t xCommandQueue; // Queue for command
+QueueHandle_t xDrawQueue; // Queue for updating visiual floors
 
 // =========================================================================================
 // *****************************************IMPORTANT***************************************
