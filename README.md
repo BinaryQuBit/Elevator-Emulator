@@ -12,7 +12,7 @@
 <br>
 
 <div align="center" style="width: 100%;">
-    <a href="https://amanpadda.uk.to"><img src="./readmeSetup/demo.gif" style="width: 100%">Final Product</a>
+    <a href="https://youtu.be/i3VYq7fYbPA"><img src="./readmeSetup/videoGIFS/final.gif" style="width: 100%">Final Product</a>
 </div>
 
 <br>
@@ -76,6 +76,6 @@
 
 <br>
 
-- <a href = "#">Description</a>
+- <a href = "https://github.com/BinaryQuBit/Elevator-Emulator/blob/master/Documents/Description.pdf">Description</a>
 
-- <a href = "#">Milestone</a>
+- <a href = "https://github.com/BinaryQuBit/Elevator-Emulator/blob/master/Documents/Milestone.pdf">Milestone</a>
