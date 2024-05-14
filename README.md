@@ -22,7 +22,7 @@
     <a href="#"><img src="./readmeSetup/techStack.svg" style="width: 100%"></a>
 </div>
 
-<h3 align = "center">Languages</h3>
+<h3 align = "center">👩‍💻 Languages</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white" alt="C">
@@ -31,7 +31,7 @@
 
 <h2></h2>
 
-<h3 align="center">Development Tools & Environments</h3>
+<h3 align="center">🚀 Development Tools & Environments</h3>
 <p align="center">
   <img src="https://img.shields.io/badge/Keil%20UVISION-%234285F4.svg?style=for-the-badge&logoColor=white" alt="Keil">
   <img src="https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white" alt="Windows Terminal">
@@ -40,7 +40,7 @@
 
 <h2></h2>
 
-<h3 align="center">Hardware and Microcontroller Boards</h3>
+<h3 align="center">⚙️ Hardware and Microcontroller Boards</h3>
 <p align="center">
   <img src="https://img.shields.io/badge/STM-%23069F9C.svg?style=for-the-badge&logo=autodesk&logoColor=white" alt="STM">
 </p>
