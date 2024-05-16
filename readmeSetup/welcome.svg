@@ -79,15 +79,12 @@
           flex-direction: column;
         }
 
-        ul {
+        .items p {
           font-size: 14px;
           line-height: 26px;
           color: #9e3ffd;
           font-weight: 700;
           font-family: "Open Sans", sans-serif;
-        }
-
-        ul li {
           display: flex;
           letter-spacing: 0.125vw;
         }
@@ -98,15 +95,9 @@
         <span><em>elevator emulator</em></span>
       </h1>
       <section class='items'>
-        <ul>
-          <li>Elevator Emulator is designed to simulate</li>
-        </ul>
-        <ul>
-          <li>the real time workings of an elevator using</li>
-        </ul>
-        <ul>
-          <li>STM32F103RB Microcontroller</li>
-        </ul>
+        <p>Elevator Emulator is designed to simulate</p>
+        <p>the real time workings of an elevator using</p>
+        <p>STM32F103RB Microcontroller</p>
       </section>
     </div>
   </foreignObject>
