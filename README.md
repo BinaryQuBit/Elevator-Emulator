@@ -212,7 +212,7 @@
 <br>
 
 <div align="center">
-    <a href="https://youtu.be/6z2m30fuD-Y"><img src="https://github.com/BinaryQuBit/Readme-Setup/blob/main/gifs/elevatorEmulatorMilestone.gif?raw=true" width="49%"></a>
+    <a href="https://youtu.be/6z2m30fuD-Y"><img src="https://github.com/BinaryQuBit/Readme-Setup/blob/main/gifs/elevatorEmulatorMilestone.gif?raw=true" width="43.5%"></a>
     <a href="https://youtu.be/i3VYq7fYbPA"><img src="https://github.com/BinaryQuBit/Readme-Setup/blob/main/gifs/elevatorEmulator.gif?raw=true" width="49%"></a>
 </div>
 
